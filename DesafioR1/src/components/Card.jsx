@@ -1,9 +1,12 @@
 import React from "react";
 
+
 const Card = ({ title, imageSource, description, url }) => {
   return (
-    <div className="card bg-dark text-white">
-      <img src={imageSource} alt="" />
+    <div className="card bg-dark text-white animate__animated animate__zoomInDown">
+      <div className="overflow">
+      <img src={imageSource} alt="" className="card-img-top"/>
+      </div>
       <div className="card-body">
         <h4 className="card-title text-center">{title}</h4>
         <p className="card-text text-secondary text-white">{description}</p>

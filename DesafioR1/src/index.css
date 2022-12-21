@@ -12,7 +12,7 @@ body {
 
 nav {
   background: linear-gradient(
-    90deg,
+    190deg,
     rgb(28, 57, 63) 10%,
     rgb(34, 34, 43) 50%,
     rgb(64, 32, 68) 98%
@@ -23,6 +23,31 @@ nav {
   gap: 10px;
   margin-top: 20px;
   border-radius: 20px;
+}
+
+.card:hover {
+  box-shadow: 5px 10px 20px 1px rgba(155, 33, 129, 0.418) !important;
+  transition: all 0.7s linear;
+}
+
+.card-body {
+  padding: 1rem 0.2 !important;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.overflow {
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card-img-top {
+  transition: all 1.2s;
+}
+
+.card-img-top:hover {
+  transform: scale(1.2);
 }
 
 img {
