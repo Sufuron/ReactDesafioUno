@@ -5,10 +5,8 @@ import Cards from "./components/Cards";
 function App() {
   return (
     <>
-      <Header title="Galería de Imágenes con React" />
-
+      <Header title="Galería de Imágenes con React + Vite" />
       <Cards />
-
       <Footer footertitle="Breve descripción de galería de imágenes" />
     </>
   );

@@ -1,8 +1,6 @@
-@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
 body {
   background: linear-gradient(
-    90deg,
+    95deg,
     rgba(61, 60, 82, 1) 0%,
     rgba(165, 165, 181, 1) 47%,
     rgba(129, 152, 157, 1) 96%
@@ -26,7 +24,7 @@ nav {
 }
 
 .card:hover {
-  box-shadow: 5px 10px 20px 1px rgba(155, 33, 129, 0.418) !important;
+  box-shadow: 5px 10px 20px 1px rgba(155, 33, 129, 0.518) !important;
   transition: all 0.7s linear;
 }
 
@@ -36,10 +34,20 @@ nav {
   text-align: center;
 }
 
+p {
+  border-top: 1px solid rgb(90, 84, 84);
+  border-radius: 10px;
+  padding: 2px;
+}
+
 .overflow {
   overflow: hidden;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+}
+
+.animate__animated.animate__zoomInDown {
+  --animate-duration: 1.5s;
 }
 
 .card-img-top {
