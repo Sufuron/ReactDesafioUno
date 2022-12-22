@@ -5,6 +5,7 @@ body {
     rgba(165, 165, 181, 1) 47%,
     rgba(129, 152, 157, 1) 96%
   );
+  color: #ccc;
   height: 100vh;
 }
 
