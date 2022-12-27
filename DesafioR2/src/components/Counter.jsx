@@ -29,7 +29,7 @@ const Counter = () => {
     ) {
       return setWelcome("Bienvenido!");
     } else {
-      return setError("Credenciales no incorrectas!");
+      return setError("Credenciales incorrectas!");
     }
   };
 
@@ -37,7 +37,6 @@ const Counter = () => {
     <>
       <div className="text-center p-5 m-5 rounded bgdegre text-white animate__animated animate__bounceIn">
         <form onSubmit={handleSubmit}>
-          
           <input
             onChange={(e) => setEmail(e.target.value)}
             className="mb-1 rounded"
@@ -58,23 +57,22 @@ const Counter = () => {
 
           <br />
 
-          <button
-            className="btn btn-outline-secondary mt-3 text-decoration-none text-white"
-            type="submit"
-            disable="true"
-          >
-            Submit
-          </button>
+          {password === "252525" ? (
+            <button
+              className="btn btn-outline-secondary mt-3 text-decoration-none text-white"
+              type="submit"
+              disable="true"
+            >
+              Submit
+            </button>
+          ) : null}
         </form>
 
-        <div className="text-danger rounded fs-4">
-          {error ? error : null}
-          </div>
+        <div className="text-danger rounded fs-4">{error ? error : null}</div>
 
         <div className="fs-4 fw-bold text-success">
           {welcome ? welcome : null}
         </div>
-
       </div>
     </>
   );
