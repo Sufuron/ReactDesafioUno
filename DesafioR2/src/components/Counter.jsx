@@ -1,10 +1,8 @@
 import { useState } from "react";
 
 const Counter = () => {
-  console.log(useState(100));
-
   const userCredential = {
-    email: "test@test.com",
+    email: "desafio@latam.cl",
     password: "252525",
   };
 
@@ -41,12 +39,10 @@ const Counter = () => {
             onChange={(e) => setEmail(e.target.value)}
             className="mb-1 rounded"
             type="text"
-            placeholder="Ingresar Username"
+            placeholder="desafio@latam.cl"
             name="email"
           />
-
           <br />
-
           <input
             onChange={(e) => setPassword(e.target.value)}
             className="rounded"
@@ -54,10 +50,8 @@ const Counter = () => {
             placeholder="Ingresar Contraseña"
             name="password"
           />
-
           <br />
-
-          {password === "252525" ? (
+          {password === "252525" && (
             <button
               className="btn btn-outline-secondary mt-3 text-decoration-none text-white"
               type="submit"
@@ -65,11 +59,9 @@ const Counter = () => {
             >
               Submit
             </button>
-          ) : null}
+          )}
         </form>
-
         <div className="text-danger rounded fs-4">{error ? error : null}</div>
-
         <div className="fs-4 fw-bold text-success">
           {welcome ? welcome : null}
         </div>
