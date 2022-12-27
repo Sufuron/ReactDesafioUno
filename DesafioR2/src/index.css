@@ -1,38 +1,37 @@
 body {
-    background: linear-gradient(
-      95deg,
-      rgba(61, 60, 82, 1) 0%,
-      rgba(165, 165, 181, 1) 47%,
-      rgba(129, 152, 157, 1) 96%
-    );
-    color: #ccc;
-    height: 100vh;
-  }
-  
-  nav {
-    background: linear-gradient(
-      190deg,
-      rgb(28, 57, 63) 10%,
-      rgb(34, 34, 43) 50%,
-      rgb(64, 32, 68) 98%
-    );
-  }
+  background: linear-gradient(
+    95deg,
+    rgba(61, 60, 82, 1) 0%,
+    rgba(165, 165, 181, 1) 47%,
+    rgba(129, 152, 157, 1) 96%
+  );
+  color: #ccc;
+  height: 100vh;
+}
 
-  .bgdegre {
-    background: linear-gradient(
-      190deg,
-      rgb(34, 34, 43) 25%,
-      rgb(55, 25, 59) 50%,
-      rgb(15, 42, 48) 75%
-    );
-  }
-  
-  footer {
-    background: linear-gradient(
-      180deg,
-      rgb(28, 57, 63) 10%,
-      rgb(34, 34, 43) 50%,
-      rgb(64, 32, 68) 98%
-    );
-  }
-  
+nav {
+  background: linear-gradient(
+    190deg,
+    rgb(28, 57, 63) 10%,
+    rgb(34, 34, 43) 50%,
+    rgb(64, 32, 68) 98%
+  );
+}
+
+.bgdegre {
+  background: linear-gradient(
+    190deg,
+    rgb(34, 34, 43) 25%,
+    rgb(55, 25, 59) 50%,
+    rgb(15, 42, 48) 75%
+  );
+}
+
+footer {
+  background: linear-gradient(
+    180deg,
+    rgb(28, 57, 63) 10%,
+    rgb(34, 34, 43) 50%,
+    rgb(64, 32, 68) 98%
+  );
+}
