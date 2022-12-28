@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Counter = () => {
+const Login = () => {
   const userCredential = {
     email: "desafio@latam.cl",
     password: "252525",
@@ -70,4 +70,4 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+export default Login;

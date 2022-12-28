@@ -1,6 +1,6 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Counter from "./components/Counter";
+import Login from "./components/Login";
 
 const App = () => {
 
@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
       <Header title="Desafio 2 React => User + Pass + Button." />
-      <Counter />
+      <Login />
       <Footer footertitle="Presiona el siguiente boton para ir al repositorio!" />
     </>
   );
