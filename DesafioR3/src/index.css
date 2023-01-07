@@ -27,6 +27,26 @@ nav {
   );
 }
 
+.bg-input {
+  text-decoration: none;
+  border-radius: 100px;
+}
+
+.list {
+  background-color: transparent;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  outline: none;
+  border: none;
+  cursor: default;
+}
+
+h5 {
+  color: #ccc;
+  cursor: default;
+}
+
 footer {
   background: linear-gradient(
     180deg,

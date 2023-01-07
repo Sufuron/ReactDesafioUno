@@ -1,24 +1,57 @@
-const Form = () => {
+import React from "react";
+import { v4 as uuidv4 } from "uuid";
+
+const Form = ({ email, setEmail, input, setInput, todos, setTodos }) => {
+  const onInputChange = (event) => {
+    setInput(event.target.value);
+  };
+
+  const onEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    setTodos([...todos, { id: uuidv4(), title: input, completed: false }]);
+    setInput("");
+  };
+
+  const onEmailSubmit = (event) => {
+    event.preventDefault();
+    setTodos([...todos, { id: uuidv4(), title: email, completed: false }]);
+    setEmail("");
+  };
+
   return (
     <>
-      <main className="text-center p-5 m-5 rounded bgdegre text-white animate__animated animate__bounceIn">
-        <form action="">
-          <input
-            className="mb-2 rounded text-center"
-            type="text"
-            placeholder="Ingrese Nombre"
-          />
-          <br />
-          <input className="rounded text-center" type="text" placeholder="Ingrese Email" />
-          <br />
-          <button
-            className="btn btn-outline-secondary mt-3 text-decoration-none text-white"
-            type="submit"
-          >
-            Agregar colaborador
-          </button>
-        </form>
-      </main>
+      <form
+        onSubmit={(onFormSubmit, onEmailSubmit)}
+        action=""
+        className="d-flex justify-content-center align-items-center pb-5"
+      >
+        <input
+          type="text"
+          placeholder="Enter your Name"
+          className="rounded m-1"
+          value={input}
+          required
+          onChange={onInputChange}
+        />
+        <input
+          type="email"
+          placeholder="Enter your Email"
+          className="rounded m-1"
+          value={email}
+          required
+          onChange={onEmailChange}
+        />
+        <button
+          className="rounded btn btn-outline-secondary text-decoration-none text-white m-1"
+          type="submit"
+        >
+          Add
+        </button>
+      </form>
     </>
   );
 };
