@@ -12,20 +12,18 @@ const Form = ({ email, setEmail, input, setInput, todos, setTodos }) => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    setTodos([...todos, { id: uuidv4(), title: input, completed: false }]);
+    setTodos([
+      ...todos,
+      { id: uuidv4(), name: input, email, completed: false },
+    ]);
     setInput("");
-  };
-
-  const onEmailSubmit = (event) => {
-    event.preventDefault();
-    setTodos([...todos, { id: uuidv4(), title: email, completed: false }]);
     setEmail("");
   };
 
   return (
     <>
       <form
-        onSubmit={(onFormSubmit, onEmailSubmit)}
+        onSubmit={onFormSubmit}
         action=""
         className="d-flex justify-content-center align-items-center pb-5"
       >
