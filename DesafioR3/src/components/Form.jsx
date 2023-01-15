@@ -8,6 +8,8 @@ const Form = ({
   setInput,
   todos,
   setTodos,
+  filteredTodos,
+  setFilteredTodos,
 }) => {
   const onInputChange = (event) => {
     setInput(event.target.value);
@@ -21,6 +23,10 @@ const Form = ({
     event.preventDefault();
     setTodos([
       ...todos,
+      { id: uuidv4(), name: input, email, completed: false },
+    ]);
+    setFilteredTodos([
+      ...filteredTodos,
       { id: uuidv4(), name: input, email, completed: false },
     ]);
     setInput("");
