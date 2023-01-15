@@ -23,12 +23,14 @@ const Form = ({ formData, setFormData, handleFormSubmit }) => {
 
   const resetFormData = () => {
     setFormData({ name: "", email: "" });
+    document.getElementById("form").reset();
   };
 
   return (
     <>
       <form
         onSubmit={onFormSubmit}
+        id="form"
         action=""
         className="d-flex justify-content-center align-items-center pb-5"
       >

@@ -25,7 +25,7 @@ const App = () => {
   const handleFormSubmit = (data) => {
     setTodos([...todos, data]);
     setOriginalTodos([...originalTodos, data]);
-    resetFormData();
+    setFormData({ name: "", email: "" });
   };
 
   const resetTodos = () => {
