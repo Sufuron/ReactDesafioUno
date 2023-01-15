@@ -10,10 +10,9 @@ const App = () => {
   const [input, setInput] = useState("");
   const [email, setEmail] = useState("");
   const [todos, setTodos] = useState([...db]);
-  const [filteredTodos, setFilteredTodos] = useState([...db]);
 
   const handleSearch = (searchTerm) => {
-    setFilteredTodos(todos.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase())));
+    setTodos(todos.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase())));
   }
 
   return (
@@ -28,10 +27,8 @@ const App = () => {
           setTodos={setTodos}
           email={email}
           setEmail={setEmail}
-          filteredTodos={filteredTodos}
-          setFilteredTodos={setFilteredTodos}
         />
-        <TodoList todos={filteredTodos} setTodos={setTodos} />
+        <TodoList todos={todos} setTodos={setTodos} />
       </div>
       <Footer footertitle="Presiona el siguiente boton para ir al repositorio!" />
     </>
