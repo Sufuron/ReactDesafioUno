@@ -36,10 +36,10 @@ nav {
   background-color: transparent;
   text-decoration: none;
   color: white;
-  text-align: center;
   outline: none;
   border: none;
   cursor: default;
+  min-width: 300px;
 }
 
 h5 {

@@ -1,7 +1,16 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const Form = ({ email, setEmail, input, setInput, todos, setTodos }) => {
+const Form = ({
+  email,
+  setEmail,
+  input,
+  setInput,
+  todos,
+  setTodos,
+  filteredTodos,
+  setFilteredTodos,
+}) => {
   const onInputChange = (event) => {
     setInput(event.target.value);
   };
@@ -14,6 +23,10 @@ const Form = ({ email, setEmail, input, setInput, todos, setTodos }) => {
     event.preventDefault();
     setTodos([
       ...todos,
+      { id: uuidv4(), name: input, email, completed: false },
+    ]);
+    setFilteredTodos([
+      ...filteredTodos,
       { id: uuidv4(), name: input, email, completed: false },
     ]);
     setInput("");

@@ -1,22 +1,24 @@
+import { useState } from 'react';
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
-import { useState } from "react";
 import db from "./api/db";
-
-/*para borrar cuando hagas click en el icono, hay que bindear el evento con el ID y 
-hacer un filter de ese ID en la lista de to do y removerlo del arreglo. */
 
 const App = () => {
   const [input, setInput] = useState("");
   const [email, setEmail] = useState("");
-  const [todos, setTodos] = useState(db);
+  const [todos, setTodos] = useState([...db]);
+  const [filteredTodos, setFilteredTodos] = useState([...db]);
+
+  const handleSearch = (searchTerm) => {
+    setFilteredTodos(todos.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase())));
+  }
+
   return (
     <>
-      <Nav title="Desafio React => To Do List." />
-      
+      <Nav title="React D3" onSearch={handleSearch} />
       <div className="bgdegre rounded m-5">
         <Header />
         <Form
@@ -26,8 +28,10 @@ const App = () => {
           setTodos={setTodos}
           email={email}
           setEmail={setEmail}
+          filteredTodos={filteredTodos}
+          setFilteredTodos={setFilteredTodos}
         />
-        <TodoList todos={todos} setTodos={setTodos} />
+        <TodoList todos={filteredTodos} setTodos={setTodos} />
       </div>
       <Footer footertitle="Presiona el siguiente boton para ir al repositorio!" />
     </>
