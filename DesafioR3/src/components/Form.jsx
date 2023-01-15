@@ -1,36 +1,28 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const Form = ({
-  email,
-  setEmail,
-  input,
-  setInput,
-  todos,
-  setTodos,
-  filteredTodos,
-  setFilteredTodos,
-}) => {
+const Form = ({ formData, setFormData, handleFormSubmit }) => {
   const onInputChange = (event) => {
-    setInput(event.target.value);
+    setFormData({ ...formData, name: event.target.value });
   };
 
   const onEmailChange = (event) => {
-    setEmail(event.target.value);
+    setFormData({ ...formData, email: event.target.value });
   };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    setTodos([
-      ...todos,
-      { id: uuidv4(), name: input, email, completed: false },
-    ]);
-    setFilteredTodos([
-      ...filteredTodos,
-      { id: uuidv4(), name: input, email, completed: false },
-    ]);
-    setInput("");
-    setEmail("");
+    handleFormSubmit({
+      id: uuidv4(),
+      name: formData.name,
+      email: formData.email,
+      completed: false,
+    });
+    resetFormData();
+  };
+
+  const resetFormData = () => {
+    setFormData({ name: "", email: "" });
   };
 
   return (
@@ -44,7 +36,7 @@ const Form = ({
           type="text"
           placeholder="Enter your Name"
           className="rounded m-1"
-          value={input}
+          value={formData.name}
           required
           onChange={onInputChange}
         />
@@ -52,7 +44,7 @@ const Form = ({
           type="email"
           placeholder="Enter your Email"
           className="rounded m-1"
-          value={email}
+          value={formData.email}
           required
           onChange={onEmailChange}
         />
