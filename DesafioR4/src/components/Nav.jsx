@@ -5,16 +5,11 @@ function Nav() {
   const [searchTerm, setSearchTerm] = useState("");
   const [pokemonData, setPokemonData] = useState(null);
   const [showStats, setShowStats] = useState(false);
-  const [showPlaceholder, setShowPlaceholder] = useState(true);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!searchTerm) {
-      alert("Please enter a Pokemon name to search");
-      return;
-    }
-    if (searchTerm < 1 || searchTerm > 900) {
-      alert("Please enter a value between 1 and 900");
+    if (!searchTerm || searchTerm < 1 || searchTerm > 905) {
+      alert("Ingresa el nombre o ID de un Pokemon entre 1 y 905!");
       return;
     }
     try {
@@ -22,27 +17,18 @@ function Nav() {
       const res = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${lowercaseSearchTerm}`
       );
-      if (res.status === 404) {
-        setPokemonData(null);
-        alert(`Pokemon ${searchTerm} not found`);
-      } else {
-        const data = await res.json();
-        setPokemonData(data);
-      }
+      const data = await res.json();
+      setPokemonData(data);
     } catch (error) {
       console.log(error);
+      setPokemonData(null);
+      alert(`Pokemon ${searchTerm} not found`);
     }
-  };
-
-  const handleReset = () => {
-    setSearchTerm("");
-    setPokemonData(null);
-    setShowPlaceholder(true);
   };
 
   return (
     <div>
-      <nav className="text-white p-3 rounded-bottom d-flex justify-content-between">
+      <nav className="text-white p-3 rounded-bottom d-flex justify-content-between animate__animated animate__fadeInRightBig">
         <form onSubmit={handleSubmit}>
           <label className="gap-2">
             Pokemon Name:
@@ -50,10 +36,8 @@ function Nav() {
               className="rounded p-1"
               type="text"
               value={searchTerm}
-              placeholder={showPlaceholder ? "Please enter a Pokemon" : ""}
+              placeholder={searchTerm ? "" : "Please enter a Pokemon"}
               onChange={(event) => setSearchTerm(event.target.value)}
-              onFocus={() => setShowPlaceholder(false)}
-              onBlur={() => setShowPlaceholder(!searchTerm)}
             />
           </label>
           <button
@@ -65,14 +49,19 @@ function Nav() {
           <button
             className="btn btn-outline-secondary text-decoration-none text-white"
             type="button"
-            onClick={handleReset}
+            onClick={() => {
+              setSearchTerm("");
+              setPokemonData(null);
+            }}
           >
             Reset
           </button>
         </form>
       </nav>
-      {searchTerm.length === 0 && (
-        <p className="text-center bg-text text-white p-1 mt-1">Bienvenido, Ingrese el ID o Nombre del Pokemon que quieres encontrar.</p>
+      {!searchTerm && (
+        <p className="text-center bg-text text-white p-1 mt-1 animate__animated animate__fadeInRightBig">
+          Bienvenido, Ingrese el ID o Nombre del Pokemon que quieres encontrar.
+        </p>
       )}
       {pokemonData && (
         <PokemonCard

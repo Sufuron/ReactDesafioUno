@@ -24,6 +24,7 @@ function PokemonList() {
   const handleNextClick = () => {
     if (offset + 12 <= maxPokemon) {
       setOffset(offset + 12);
+      setMaxPokemon(900);
     }
   };
 
