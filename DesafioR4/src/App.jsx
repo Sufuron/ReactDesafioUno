@@ -12,7 +12,10 @@ function App() {
             <Nav />
           </div>
           <div className="col-12">
-            <h1 className="text-center animate__animated animate__fadeInLeftBig">Pokemon List</h1>
+            <div className="d-flex justify-content-center">
+              <h1 className="text-center animate__animated animate__fadeInLeftBig rounded bg-text w-25 text-white mt-2">Pokemon List</h1>
+            </div>
+            
             <PokemonList />
           </div>
         </div>

@@ -17,7 +17,7 @@ const Card = ({ title, imageSource, description, url }) => {
   }, [url]);
 
   return (
-    <div className="card bg-dark text-white animate__animated animate__bounceIn">
+    <div className="card bg-text  text-white animate__animated animate__bounceIn">
       <div className="overflow">
         <img src={imageSource} alt="" className="card-img-top" />
       </div>
