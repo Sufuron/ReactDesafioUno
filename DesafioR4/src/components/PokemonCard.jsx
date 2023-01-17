@@ -27,15 +27,15 @@ const PokemonCard = ({ pokemonData, showStats, setShowStats }) => {
       <div>
         {pokemonData && (
           <div className="card-container" style={{ background: typeColor }}>
-            <div className="card">
-              <img
+            <div className="card bg-text text-white p-4">
+              <img className="card-img-top"
                 src={pokemonData.sprites.front_default}
                 alt={pokemonData.name}
               />
               <h2>{pokemonData.name}</h2>
               <p>Altura: {(pokemonData.height / 10).toFixed(2)} m</p>
               <p>Peso: {(pokemonData.weight / 10).toFixed(2)} kg</p>
-              <button className="rounded mb-2" onClick={() => setShowStats(!showStats)}>
+              <button className="btn btn-outline-secondary mb-2 text-decoration-none text-white" onClick={() => setShowStats(!showStats)}>
                 {showStats ? "Hide Stats" : "Show Stats"}
               </button>
               {showStats && (
