@@ -26,6 +26,7 @@ const Card = ({ title, imageSource, description, url }) => {
         <p className="card-text text-secondary text-white">{description}</p>
         <p className="card-text text-secondary text-white">Peso: {(pokemonData.weight / 10).toFixed(2)} kg</p>
         <p className="card-text text-secondary text-white">Altura: {(pokemonData.height / 10).toFixed(2)} m</p>
+        <p className="card-text text-secondary text-white">Tipo: {pokemonData.types && pokemonData.types.map(type => type.type.name).join(', ')}</p>
         <div className="text-center">
           <button className="btn btn-outline-secondary">
             <a

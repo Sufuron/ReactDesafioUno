@@ -11,7 +11,7 @@ function App() {
           <Nav />
         </div>
         <div className="d-flex justify-content-center">
-          <h1 className="text-center animate__animated animate__fadeInLeftBig rounded bg-text w-25 text-white mt-2">
+          <h1 className="text-center animate__animated animate__fadeInLeftBig rounded bg-text w-100 text-white mt-2 d-flex justify-content-center">
             Pokemon List
           </h1>
         </div>

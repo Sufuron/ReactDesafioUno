@@ -5,6 +5,7 @@ function Nav() {
   const [searchTerm, setSearchTerm] = useState("");
   const [pokemonData, setPokemonData] = useState(null);
   const [showStats, setShowStats] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -12,6 +13,8 @@ function Nav() {
       alert("Ingresa el nombre o ID de un Pokemon entre 1 y 905!");
       return;
     }
+    setLoading(true);
+    setPokemonData(null);
     try {
       const lowercaseSearchTerm = searchTerm.toLowerCase();
       const res = await fetch(
@@ -21,8 +24,9 @@ function Nav() {
       setPokemonData(data);
     } catch (error) {
       console.log(error);
-      setPokemonData(null);
       alert(`Pokemon ${searchTerm} not found`);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -30,13 +34,13 @@ function Nav() {
     <div>
       <nav className="text-white p-3 rounded-bottom d-flex justify-content-between animate__animated animate__fadeInRightBig">
         <form onSubmit={handleSubmit}>
-          <label className="gap-2">
-            Pokemon Name:
+          <label>
+            Nombre del Pokemon:
             <input
-              className="rounded p-1"
+              className="rounded m-1 p-1"
               type="text"
               value={searchTerm}
-              placeholder={searchTerm ? "" : "Please enter a Pokemon"}
+              placeholder={searchTerm ? "" : "Encuentra un Shiny"}
               onChange={(event) => setSearchTerm(event.target.value)}
             />
           </label>
@@ -68,6 +72,7 @@ function Nav() {
           pokemonData={pokemonData}
           showStats={showStats}
           setShowStats={setShowStats}
+          loading={loading}
         />
       )}
     </div>
