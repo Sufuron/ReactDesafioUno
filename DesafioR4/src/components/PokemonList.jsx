@@ -56,7 +56,7 @@ function PokemonList() {
 
   return (
     <div>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center animate__animated animate__fadeInRightBig">
         <p className="p-b text-white">Ordenar por orden alfabetico:</p>
         <button className="bg-button" onClick={handleSort}>
           Presiona Aquí
