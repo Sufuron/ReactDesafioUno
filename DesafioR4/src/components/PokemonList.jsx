@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
+import "../index.css";
 
 function PokemonList() {
   const [pokemonData, setPokemonData] = useState([]);
   const [offset, setOffset] = useState(0);
   const [maxPokemon, setMaxPokemon] = useState(900);
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [originalData, setOriginalData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await fetch(
-          `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=12`
+          `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=16`
         );
         const data = await res.json();
         setPokemonData(data.results);
+        setOriginalData(data.results);
       } catch (error) {
         console.log(error);
       }
@@ -22,24 +26,47 @@ function PokemonList() {
   }, [offset]);
 
   const handleNextClick = () => {
-    if (offset + 12 <= maxPokemon) {
-      setOffset(offset + 12);
-      setMaxPokemon(900);
+    if (offset + 16 <= maxPokemon) {
+      setOffset(offset + 16);
+      setMaxPokemon(905);
     }
   };
 
   const handlePreviousClick = () => {
-    if (offset - 12 >= 0) {
-      setOffset(offset - 12);
+    if (offset - 16 >= 0) {
+      setOffset(offset - 16);
     }
+  };
+
+  const handleSort = () => {
+    let sortedPokemons = [...pokemonData];
+    if (sortOrder === "asc") {
+      setSortOrder("desc");
+      sortedPokemons.sort((a, b) => (a.name > b.name ? 1 : -1));
+    } else {
+      setSortOrder("asc");
+      sortedPokemons.sort((a, b) => (a.name < b.name ? 1 : -1));
+    }
+    setPokemonData(sortedPokemons);
+  };
+
+  const handleReset = () => {
+    setPokemonData(originalData);
   };
 
   return (
     <div>
-      <div
-        className="pokemon-list"
-        style={{ display: "flex", flexWrap: "wrap" }}
-      >
+      <div className="d-flex justify-content-center">
+        <p className="p-b text-white">Ordenar por orden alfabetico:</p>
+        <button className="bg-button" onClick={handleSort}>
+          Presiona Aquí
+        </button>
+        <button className="bg-button" onClick={handleReset}>
+          Reset
+        </button>
+      </div>
+
+      <div className="pokemon-list">
         {pokemonData.map((pokemon) => {
           const id = pokemon.url.match(/\/(\d+)\/$/)[1];
           return (
@@ -58,13 +85,13 @@ function PokemonList() {
           className="btn bg-text m-1 text-decoration-none text-white"
           onClick={handlePreviousClick}
         >
-          Previous
+          Anterior
         </button>
         <button
           className="btn bg-text m-1 text-decoration-none text-white"
           onClick={handleNextClick}
         >
-          Next
+          Siguiente
         </button>
       </div>
     </div>

@@ -34,13 +34,13 @@ function Nav() {
     <div>
       <nav className="text-white p-3 rounded-bottom d-flex justify-content-between animate__animated animate__fadeInRightBig">
         <form onSubmit={handleSubmit}>
-          <label>
+          <label className="text-center">
             Nombre del Pokemon:
             <input
               className="rounded m-1 p-1"
               type="text"
               value={searchTerm}
-              placeholder={searchTerm ? "" : "Encuentra un Shiny"}
+              placeholder={searchTerm ? "" : "Encuentra tu Pokemon!"}
               onChange={(event) => setSearchTerm(event.target.value)}
             />
           </label>
@@ -48,7 +48,7 @@ function Nav() {
             className="btn btn-outline-secondary m-1 text-decoration-none text-white"
             type="submit"
           >
-            Search
+            Buscar
           </button>
           <button
             className="btn btn-outline-secondary text-decoration-none text-white"

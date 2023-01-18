@@ -1,6 +1,6 @@
 const typesColors = {
   normal: "linear-gradient(#A4A4A4, #D3D3D3)",
-  fight: "linear-gradient(#5A0303, #8C0202)",
+  fighting: "linear-gradient(#5A0303, #8C0202)",
   fire: "linear-gradient(#ff0000, #ff6600)",
   flying: "linear-gradient(#1F838B, #8FB5CC)",
   poison: "linear-gradient(#B86AAA, #E6A9D2)",

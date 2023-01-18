@@ -27,7 +27,7 @@ nav {
   );
 }
 
-.bg-text{
+.bg-text {
   background: linear-gradient(
     190deg,
     rgb(28, 57, 63) 10%,
@@ -36,12 +36,16 @@ nav {
   );
 }
 
-
 .card {
   margin: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card-pokemon-search {
@@ -73,6 +77,46 @@ p {
   padding: 2px;
 }
 
+.p-b {
+  border-radius: none;
+  text-align: center;
+  border-top: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 15px;
+  background: linear-gradient(
+    190deg,
+    rgba(28, 57, 63, 0.909) 10%,
+    rgba(34, 34, 43, 0.899) 50%,
+    rgba(64, 32, 68, 0.91) 98%
+  );
+}
+
+.bg-button:hover {
+  background: linear-gradient(
+    190deg,
+    rgba(28, 57, 63, 0.771) 10%,
+    rgba(34, 34, 43, 0.765) 50%,
+    rgba(64, 32, 68, 0.788) 98%
+  );
+}
+
+.bg-button {
+  border: 2px solid rgba(255, 255, 255, 0.695);
+  background: linear-gradient(
+    190deg,
+    rgb(28, 57, 63) 10%,
+    rgb(34, 34, 43) 50%,
+    rgb(64, 32, 68) 98%
+  );
+  border-radius: 6px;
+  color: white;
+  padding: 10px;
+  padding-top: -10px;
+  padding-bottom: -10px;
+  margin: 15px;
+}
+
 .animate__animated.animate__zoomInDown {
   --animate-duration: 1.5s;
 }
@@ -100,5 +144,3 @@ footer {
     rgb(64, 32, 68) 98%
   );
 }
-
-
