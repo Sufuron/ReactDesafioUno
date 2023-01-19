@@ -6,6 +6,15 @@ function PokemonList() {
   const [page, setPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("asc");
   const [originalData, setOriginalData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredPokemons = pokemonData.filter((pokemon) => {
+    return pokemon.name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   useEffect(() => {
     async function fetchData() {
@@ -59,6 +68,15 @@ function PokemonList() {
 
   return (
     <div>
+      <div className="d-flex justify-content-center">
+        <input
+          className="search-input rounded p-1"
+          type="text"
+          placeholder="Encuentra tu Pokemon!"
+          onChange={handleSearch}
+          value={searchTerm}
+        />
+      </div>
       <div className="d-flex justify-content-center animate__animated animate__fadeInRightBig">
         <p className="p-b text-white">Ordenar por orden alfabetico:</p>
         <button className="bg-button" onClick={handleSort}>
@@ -87,7 +105,7 @@ function PokemonList() {
       </div>
 
       <div className="pokemon-list">
-        {pokemonData.map((pokemon) => {
+        {filteredPokemons.map((pokemon) => {
           const id = pokemon.url.match(/\/(\d+)\/$/)[1];
           return (
             <Card
