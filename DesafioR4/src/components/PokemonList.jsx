@@ -5,7 +5,6 @@ import "../index.css";
 function PokemonList() {
   const [pokemonData, setPokemonData] = useState([]);
   const [offset, setOffset] = useState(0);
-  const [maxPokemon, setMaxPokemon] = useState(900);
   const [sortOrder, setSortOrder] = useState("asc");
   const [originalData, setOriginalData] = useState([]);
 
@@ -13,7 +12,7 @@ function PokemonList() {
     async function fetchData() {
       try {
         const res = await fetch(
-          `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=16`
+          `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=100`
         );
         const data = await res.json();
         setPokemonData(data.results);
@@ -26,15 +25,16 @@ function PokemonList() {
   }, [offset]);
 
   const handleNextClick = () => {
-    if (offset + 16 <= maxPokemon) {
-      setOffset(offset + 16);
-      setMaxPokemon(905);
+    if (offset + 100 <= 899) {
+      setOffset(offset + 100);
     }
   };
 
+
+
   const handlePreviousClick = () => {
-    if (offset - 16 >= 0) {
-      setOffset(offset - 16);
+    if (offset - 100 >= 0) {
+      setOffset(offset - 100);
     }
   };
 
