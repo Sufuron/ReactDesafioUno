@@ -24,13 +24,15 @@ function PokemonList() {
     fetchData();
   }, [offset]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [offset]);
+
   const handleNextClick = () => {
     if (offset + 100 <= 899) {
       setOffset(offset + 100);
     }
   };
-
-
 
   const handlePreviousClick = () => {
     if (offset - 100 >= 0) {
