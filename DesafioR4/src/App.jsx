@@ -1,5 +1,5 @@
 import React from "react";
-import PokemonList from "./components/PokemonList";
+import PokemonList from "./components/MiApi";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 

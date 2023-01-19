@@ -11,11 +11,16 @@ const PokemonCard = ({ pokemonData, showStats, setShowStats }) => {
       setLoading(false);
       setIsVisible(true);
     }, 250);
-  }, []);
+    if (pokemonData) {
+      setShowStats(false);
+    }
+  }, [pokemonData]);
 
   return (
     <div>
-      {loading && <p className="text-center text-white m-1 bg-text p-1">Buscando...</p>}
+      {loading && (
+        <p className="text-center text-white m-1 bg-text p-1">Buscando...</p>
+      )}
       {pokemonData && (
         <div
           className={`card-pokemon-search animate__animated animate__fadeIn ${
@@ -23,9 +28,9 @@ const PokemonCard = ({ pokemonData, showStats, setShowStats }) => {
           }`}
           style={{ background: typeColor }}
         >
-          <div className="card bg-text text-white p-4">
+          <div className="card-nav bg-text text-white p-4">
             <img
-              className="card-img-top"
+              className="card-img-top-nav"
               src={pokemonData.sprites.front_shiny}
               alt={pokemonData.name}
             />
@@ -40,15 +45,13 @@ const PokemonCard = ({ pokemonData, showStats, setShowStats }) => {
               {showStats ? "Hide Stats" : "Show Stats"}
             </button>
             {showStats && (
-              <div>
-                <h3 className="text-center">Estadisticas</h3>
-                <ul>
-                  {pokemonData.stats.map((stat) => (
-                    <li key={stat.stat.name}>
-                      {stat.stat.name}: {stat.base_stat}
-                    </li>
-                  ))}
-                </ul>
+              <div className="text-center m-3">
+                <h3>Estadisticas</h3>
+                {pokemonData.stats.map((stat) => (
+                  <p key={stat.stat.name}>
+                    {stat.stat.name}: {stat.base_stat}
+                  </p>
+                ))}
               </div>
             )}
           </div>

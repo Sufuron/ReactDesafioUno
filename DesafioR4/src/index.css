@@ -44,6 +44,12 @@ nav {
   align-items: center;
 }
 
+.card-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
 
 .pokemon-list {
   display: flex;
@@ -63,12 +69,12 @@ nav {
 }
 
 .card:hover {
-  box-shadow: 8px 10px 20px 1px rgba(155, 33, 129, 0.518) !important;
+  box-shadow: 8px 10px 20px 1px rgba(155, 33, 129, 0.518);
   transition: all 0.7s linear;
 }
 
 .card-body {
-  padding: 2rem 0.2 !important;
+  padding: 2rem 0.2;
   font-size: 1rem;
   text-align: center;
 }
@@ -120,6 +126,7 @@ p {
   min-width: 120px;
 }
 
+
 .animate__animated.animate__zoomInDown {
   --animate-duration: 1.5s;
 }
@@ -131,6 +138,15 @@ p {
 .card-img-top:hover {
   transform: scale(1.4);
 }
+
+.card-img-top-nav {
+  transition: all 1.5s;
+}
+
+.card-img-top-nav:hover {
+  transform: scale(1.25);
+}
+
 
 img {
   border-top-left-radius: 20px;

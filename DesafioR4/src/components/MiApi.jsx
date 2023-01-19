@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
-import "../index.css";
 
 function PokemonList() {
   const [pokemonData, setPokemonData] = useState([]);
-  const [offset, setOffset] = useState(0);
+  const [page, setPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("asc");
   const [originalData, setOriginalData] = useState([]);
 
@@ -12,7 +11,9 @@ function PokemonList() {
     async function fetchData() {
       try {
         const res = await fetch(
-          `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=100`
+          `https://pokeapi.co/api/v2/pokemon/?offset=${
+            (page - 1) * 100
+          }&limit=100`
         );
         const data = await res.json();
         setPokemonData(data.results);
@@ -22,21 +23,21 @@ function PokemonList() {
       }
     }
     fetchData();
-  }, [offset]);
+  }, [page]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [offset]);
+  }, [page]);
 
   const handleNextClick = () => {
-    if (offset + 100 <= 899) {
-      setOffset(offset + 100);
+    if (page < 8) {
+      setPage(page + 1);
     }
   };
 
   const handlePreviousClick = () => {
-    if (offset - 100 >= 0) {
-      setOffset(offset - 100);
+    if (page > 1) {
+      setPage(page - 1);
     }
   };
 
@@ -67,6 +68,23 @@ function PokemonList() {
           Reset
         </button>
       </div>
+      <div className="d-flex justify-content-center">
+        <button
+          className="btn bg-text m-1 text-decoration-none text-white"
+          onClick={handlePreviousClick}
+          disabled={page === 1}
+        >
+          Anterior
+        </button>
+        <p className="m-1 p-1 text-white bg-text">Page {page} of 8</p>
+        <button
+          className="btn bg-text m-1 text-decoration-none text-white"
+          onClick={handleNextClick}
+          disabled={page === 8}
+        >
+          Siguiente
+        </button>
+      </div>
 
       <div className="pokemon-list">
         {pokemonData.map((pokemon) => {
@@ -86,12 +104,15 @@ function PokemonList() {
         <button
           className="btn bg-text m-1 text-decoration-none text-white"
           onClick={handlePreviousClick}
+          disabled={page === 1}
         >
           Anterior
         </button>
+        <p className="m-1 p-1 text-white bg-text">Page {page} of 8</p>
         <button
           className="btn bg-text m-1 text-decoration-none text-white"
           onClick={handleNextClick}
+          disabled={page === 8}
         >
           Siguiente
         </button>
