@@ -125,11 +125,11 @@ function MiApi() {
         >
           Anterior
         </button>
-        <p className="m-1 p-1 text-white bg-text">Page {page} of 8</p>
+        <p className="m-1 p-1 text-white bg-text">Page {page} of 6</p>
         <button
           className="btn bg-text m-1 text-decoration-none text-white"
           onClick={handleNextClick}
-          disabled={page === 8}
+          disabled={page === 6}
         >
           Siguiente
         </button>
