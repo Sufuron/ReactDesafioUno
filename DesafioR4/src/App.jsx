@@ -1,5 +1,5 @@
 import React from "react";
-import PokemonList from "./components/MiApi";
+import MiApi from "./components/MiApi";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
@@ -15,7 +15,7 @@ function App() {
             Pokemon List
           </h1>
         </div>
-        <PokemonList />
+        <MiApi />
       </div>
       <Footer />
     </div>

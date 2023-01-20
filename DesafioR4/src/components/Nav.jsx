@@ -35,7 +35,7 @@ function Nav() {
       <nav className="text-white p-3 rounded-bottom d-flex justify-content-between animate__animated animate__fadeInRightBig">
         <form onSubmit={handleSubmit}>
           <label className="text-center">
-          Encuentra tu Shiny:
+            Encuentra tu Shiny:
             <input
               className="rounded m-1 p-1 text-center"
               type="text"

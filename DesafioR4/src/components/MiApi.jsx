@@ -21,8 +21,8 @@ function PokemonList() {
       try {
         const res = await fetch(
           `https://pokeapi.co/api/v2/pokemon/?offset=${
-            (page - 1) * 100
-          }&limit=100`
+            (page - 1) * 150
+          }&limit=150`
         );
         const data = await res.json();
         setPokemonData(data.results);
@@ -68,15 +68,6 @@ function PokemonList() {
 
   return (
     <div>
-      <div className="d-flex justify-content-center">
-        <input
-          className="search-input rounded p-1"
-          type="text"
-          placeholder="Encuentra tu Pokemon!"
-          onChange={handleSearch}
-          value={searchTerm}
-        />
-      </div>
       <div className="d-flex justify-content-center animate__animated animate__fadeInRightBig">
         <p className="p-b text-white">Ordenar por orden alfabetico:</p>
         <button className="bg-button" onClick={handleSort}>
@@ -86,7 +77,7 @@ function PokemonList() {
           Reset
         </button>
       </div>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center animate__animated animate__fadeInRightBig">
         <button
           className="btn bg-text m-1 text-decoration-none text-white"
           onClick={handlePreviousClick}
@@ -94,16 +85,24 @@ function PokemonList() {
         >
           Anterior
         </button>
-        <p className="m-1 p-1 text-white bg-text">Page {page} of 8</p>
+        <p className="m-1 p-1 text-white bg-text">Page {page} of 6</p>
         <button
           className="btn bg-text m-1 text-decoration-none text-white"
           onClick={handleNextClick}
-          disabled={page === 8}
+          disabled={page === 6}
         >
           Siguiente
         </button>
       </div>
-
+      <div className="d-flex justify-content-center animate__animated animate__fadeInLeftBig m-2 p-2">
+        <input
+          className="search-input rounded p-1"
+          type="text"
+          placeholder="Encuentra tu Pokemon!"
+          onChange={handleSearch}
+          value={searchTerm}
+        />
+      </div>
       <div className="pokemon-list">
         {filteredPokemons.map((pokemon) => {
           const id = pokemon.url.match(/\/(\d+)\/$/)[1];
