@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "./Card";
 
-function PokemonList() {
+function MiApi() {
   const [pokemonData, setPokemonData] = useState([]);
   const [page, setPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("asc");
@@ -138,4 +138,4 @@ function PokemonList() {
   );
 }
 
-export default PokemonList;
+export default MiApi;
